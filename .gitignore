@@ -1,0 +1,14 @@
+# Node.js dependencies
+node_modules/
+.pnpm-debug.log*
+
+# Build output
+dist/
+build/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Husky hooks
+.husky/_/
+

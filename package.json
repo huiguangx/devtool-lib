@@ -4,9 +4,41 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepare": "husky install",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "commit": "git-cz"
   },
-  "keywords": [],
+  "lint-staged": {
+    "*.{js,ts,tsx,jsx,vue}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ],
+    "{!(package)*.json,*.code-snippets,.!(browserslist)*rc}": [
+      "prettier --write--parser json"
+    ],
+    "package.json": [
+      "prettier --write"
+    ],
+    "*.md": [
+      "prettier --write"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-customizable"
+    }
+  },
+  "keywords": [
+    "pnpm",
+    "monorepo"
+  ],
   "author": "guang",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "commitizen": "^4.3.1",
+    "cz-customizable": "^7.2.1"
+  }
 }
